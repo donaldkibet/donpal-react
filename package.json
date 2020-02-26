@@ -18,8 +18,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "jest --config jest.config.json --verbose false",
+    "eject": "react-scripts eject",
+    "coverage": "npm test -- --coverage",
+    "prettier": "prettier"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,5 +37,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.8.3",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "jest-svg-transformer": "^1.0.0",
+    "prettier": "^1.19.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run coverage"
+    }
   }
 }
