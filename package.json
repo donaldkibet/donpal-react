@@ -10,6 +10,10 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-config-ts-react-important-stuff": "^2.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "3.4.0",
@@ -20,8 +24,11 @@
     "build": "react-scripts build",
     "test": "jest --config jest.config.json --verbose false",
     "eject": "react-scripts eject",
-    "coverage": "npm test -- --coverage",
-    "prettier": "prettier"
+    "coverage": "yarn test --coverage",
+    "prettier": "prettier",
+    "cypress:open": "cypress open",
+    "lint": "eslint src --ext tsx",
+    "cypress:test": "npx cypress run --browser chrome"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,14 +47,21 @@
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.8.3",
+    "cypress": "^4.0.2",
+    "eslint-plugin-cypress": "^2.10.3",
     "husky": "^4.2.3",
     "jest": "^24.9.0",
     "jest-svg-transformer": "^1.0.0",
-    "prettier": "^1.19.1"
+    "lint-staged": ">=10",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run coverage"
+      "pre-commit": "pretty-quick --staged && yarn run lint && yarn run coverage && yarn run cypress:test"
     }
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
   }
 }
