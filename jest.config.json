@@ -1,17 +1,18 @@
 {
-    "transform":{
-        "^.+\\.tsx?$":"babel-jest",
-        "^.+\\.svg$": "jest-svg-transformer"
-    },
-    "moduleNameMapper":{
-        "\\.(css)$": "identity-obj-proxy"
-    },
-    "coverageThreshold":{
-        "global": {
-            "statement": 100,
-            "branches": 100,
-            "functions":100,
-            "lines": 100
-        }
+  "transform": {
+    "^.+\\.tsx?$": "babel-jest",
+    "^.+\\.svg$": "jest-svg-transformer"
+  },
+  "moduleNameMapper": {
+    "\\.(css)$": "identity-obj-proxy"
+  },
+  "coverageThreshold": {
+    "global": {
+      "statement": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
     }
+  },
+  "modulePathIgnorePatterns": ["cypress"]
 }
