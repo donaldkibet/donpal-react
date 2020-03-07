@@ -1,8 +1,12 @@
 language: node_js
 
 node_js:
-    - node
+  - node
 scripts:
-    - npm run test
-    - npm run coverage
-    - npm run build
+  - npm run test
+  - npm run coverage
+  - npm run build
+deploy:
+  provider: firebase
+  token:
+    secure: FIREBASE
