@@ -1,12 +1,23 @@
+dist: xenial
+sudo: false
+
 language: node_js
 
 node_js:
   - node
+install:
+  - npm install
+  - npm install firebase-tools
 scripts:
   - npm run test
   - npm run coverage
   - npm run build
-deploy:
-  provider: firebase
-  token:
-    secure: FIREBASE
+after_success:
+  - firebase deploy --token "$FIREBASE_TOKEN"
+
+notifications:
+  email:
+    recipients:
+      - olelashaw@gmail.com
+    on_failure: always
+    on_success: always
