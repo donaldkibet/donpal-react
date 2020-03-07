@@ -12,11 +12,10 @@ scripts:
   - npm run test
   - npm run coverage
   - npm run build
-after_success:
-  deploy:
-    provider: firebase
-    token:
-      secure: "$$FIREBASE_TOKEN"
+deploy:
+  provider: firebase
+  token:
+    secure: "$$FIREBASE_TOKEN"
   on:
     branch: master
 
