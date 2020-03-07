@@ -1,8 +1,6 @@
 dist: xenial
 sudo: false
-
 language: node_js
-
 node_js:
   - node
 install:
@@ -16,10 +14,12 @@ deploy:
   provider: firebase
   token:
     secure: "$$FIREBASE_TOKEN"
-
 notifications:
   email:
     recipients:
       - olelashaw@gmail.com
     on_failure: always
     on_success: always
+env:
+  global:
+    - secure: cM82rwiLjvWuurT+MxHo41Q/o03aaZNUW+Kux1UOXe/um0nQY0y83fhgWrR9VtPm4qsEDvCiQGNtErvwWVRIcRv7IOciw1Hu1O9an1P+vArxFHx23+mp/pPmeIXpjfXGxM5+lsp9510KHPsWVEgGje6Ua+fre9JoQxi2tPIy1uKM0rsTgVgbPwly7hrPoTqoRyiBwnSUxr/z8R8NtaCnMqTOAGv/5qU6EOSyOEB1HRqPnyb5Uwk2GjwlulG8ZCgyF4OKQqy0l7CZKr3v64KFESTDrdQaYG0zRSaDT3ymZCSfl2J6J70C05spddiZwA8053u75tnTEqaWVXEmzHqsJSxNAC0yLIusUllyd0U2OXtGgLgllDcDyGkPq1ZYt4e/1rawh2jRUgh7EFerRW6eK7G3WCJzDb7S2fOMK97MtZUsYFZEjMvGy7rWq11HtnrYJRz7bpmi7dL9M4kttYOuX6OQnhsV+MiXWmSIYobzo1BHNG1IN+R9NyoNZMJq6dLs6ytvRZWScWDEH/cDGqKWjXHzq0qwyPTdHJazYQvx756l7tTLVktptqYeLpTdpZGFRHbXl5OclX/oFaJgQBAlEcCJUh34XkMPSBYQmVu5OL09UMoM3BAcG+vv8sPXkAziAXlFHObNRTo5e9yk3ehx6dPojJELJWPaU9qEiX/s7aE=
